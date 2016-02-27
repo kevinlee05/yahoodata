@@ -5,7 +5,7 @@ var moment = require('moment');
 var assert = require('assert');
 var dlFuncs = require('./downloadFunctions');
 
-var cashFlowUrl = 'https://sg.finance.yahoo.com/q/cf?s=';
+var SheetUrl = 'https://sg.finance.yahoo.com/q/cf?s=';
 
 var mongoUrl = 'mongodb://localhost:27017/yahoodata';
 
