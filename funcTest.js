@@ -5,23 +5,12 @@ var moment = require('moment');
 var assert = require('assert');
 var Converter = require("csvtojson").Converter;
 var dlFuncs = require('./scripts/downloadFunctions');
-
-var cashFlowUrl = 'https://sg.finance.yahoo.com/q/cf?s=';
-var balSheetUrl = 'https://sg.finance.yahoo.com/q/bs?s=';
-
-
-var mongoUrl = 'mongodb://localhost:27017/yahoodata';
-
-var tickers = [];
+var getAllSymbols = require('./scripts/getAllSymbols')
+var Q = require('q');
 
 
-
-dlFuncs.downloadHistoricalPrices('O23.SI')
-	.then(function(data){
-		console.log(typeof(data));
-
-	});
-
-
+getAllSymbols().then(function(data){
+	console.log(data);
+})
 
 

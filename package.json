@@ -17,6 +17,7 @@
     "moment": "^2.11.2",
     "mongodb": "^2.1.7",
     "mongoose": "^4.4.3",
+    "q": "^1.4.1",
     "request": "latest"
   }
 }

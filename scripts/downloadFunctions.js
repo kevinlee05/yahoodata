@@ -3,8 +3,9 @@ var cheerio = require('cheerio');
 var moment = require('moment');
 var assert = require('assert');
 var Converter = require("csvtojson").Converter;
+var Q = require('q')
 
-exports.getSymbols = function(db, collectionName) {
+exports.getArrayOfAllSymbols = function(db, collectionName) {
 	return new Promise(function(resolve){
 	  var cursor = db.collection(collectionName)
 	  					.find({},{_id:0, symbol:1})
@@ -226,9 +227,11 @@ exports.downloadBalSheet = function(ticker, annualBool){
 }
 
 
-exports.downloadIncStatement = function(ticker, incStatUrl, annualBool) {
+exports.downloadIncStatement = function(ticker, annualBool) {
 
 	return new Promise(function(resolve,reject){
+		var incStUrl = 'https://sg.finance.yahoo.com/q/is?s=';
+
 		var url = '';
 		
 		// concatenate url and ticker depending on annual parameter
